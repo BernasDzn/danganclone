@@ -23,34 +23,31 @@ public class VisualizerScript : MonoBehaviour {
 	void Start() {
 		visualizerObjects = GetComponentsInChildren<VisualizerObjectScript>();
 
-		if(!audioClip)
-			return;
-
 		audioSource = new GameObject("_AudioSource").AddComponent<AudioSource>();
 		audioSource.loop = loop;
-		audioSource.clip = audioClip;
         audioSource.volume = volume;
-		audioSource.Play();
 	}
 	
 	// Update is called once per frame
 	void FixedUpdate() {
-        float[] spectrumData = new float[visualizerSamples];
-        audioSource.GetSpectrumData(spectrumData, 0, FFTWindow.Triangle);
-        for (int i = 0; i < visualizerObjects.Length; i++) {
-			Vector2 newSize = visualizerObjects[i].GetComponent<RectTransform>().rect.size;
+		if(audioSource.isPlaying) {
+			float[] spectrumData = new float[visualizerSamples];
+			audioSource.GetSpectrumData(spectrumData, 0, FFTWindow.Triangle);
+			for (int i = 0; i < visualizerObjects.Length; i++) {
+				Vector2 newSize = visualizerObjects[i].GetComponent<RectTransform>().rect.size;
 
-			newSize.y = Mathf.Clamp(Mathf.Lerp(newSize.y, minHeight + (spectrumData[i] * (maxHeight - minHeight) * ((i*3.5f)+10.0f)), updateSentivity * 0.5f), minHeight, maxHeight);
-            
-            if(newSize.y > visualizerObjects[i].GetComponent<RectTransform>().sizeDelta.y){
-                visualizerObjects[i].GetComponent<RectTransform>().sizeDelta = newSize;
-            }
-            else{
-                newSize = new Vector2(visualizerObjects[i].GetComponent<RectTransform>().sizeDelta.x, visualizerObjects[i].GetComponent<RectTransform>().sizeDelta.y-0.5f);
-                visualizerObjects[i].GetComponent<RectTransform>().sizeDelta = newSize;
-            }
-			
-            visualizerObjects[i].GetComponent<Image>().color = visualizerColor;
+				newSize.y = Mathf.Clamp(Mathf.Lerp(newSize.y, minHeight + (spectrumData[i] * (maxHeight - minHeight) * ((i*3.5f)+10.0f)), updateSentivity * 0.5f), minHeight, maxHeight);
+				
+				if(newSize.y > visualizerObjects[i].GetComponent<RectTransform>().sizeDelta.y){
+					visualizerObjects[i].GetComponent<RectTransform>().sizeDelta = newSize;
+				}
+				else{
+					newSize = new Vector2(visualizerObjects[i].GetComponent<RectTransform>().sizeDelta.x, visualizerObjects[i].GetComponent<RectTransform>().sizeDelta.y-0.5f);
+					visualizerObjects[i].GetComponent<RectTransform>().sizeDelta = newSize;
+				}
+				
+				visualizerObjects[i].GetComponent<Image>().color = visualizerColor;
+			}
 		}
 	}
 }

@@ -19,6 +19,9 @@ public class CameraMovement : MonoBehaviour
     // Update is called once per frame
     void LateUpdate()
     {
+        if(GameObject.Find("GameManager").GetComponent<GameManager>().state != GameState.PLAYING){
+            return;
+        }
         rotation.x += Input.GetAxis("Mouse X") * sensitivity;
         rotation.y += Input.GetAxis("Mouse Y") * sensitivity;
         rotation.y = Mathf.Clamp(rotation.y, -yRotationLimit, yRotationLimit);

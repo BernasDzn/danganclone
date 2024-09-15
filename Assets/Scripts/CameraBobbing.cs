@@ -22,12 +22,15 @@ public class CameraBobbing : MonoBehaviour
     void Start()
     {
         parent = gameObject.transform.parent.gameObject;
-        originalY=parent.transform.position.y+0.75f;
+        originalY=transform.position.y;
     }
 
     // Update is called once per frame
     void LateUpdate()
     {
+        if(GameObject.Find("GameManager").GetComponent<GameManager>().state != GameState.PLAYING){
+            return;
+        }
         if(parent.GetComponent<PlayerMovement>().currentSpeed != 0){
             doBobbing();
         }

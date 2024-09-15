@@ -1,0 +1,72 @@
+OST:beautiful_morning
+CHARACTER:CHIAKI_NANAMI
+SPRITE:look
+[hmm]"..."
+PAUSE
+SPRITE:lookHappy
+SFX:ChangeLine
+[ah]"Hajime!"
+PAUSE
+SPRITE:pout
+SFX:ChangeLine
+[hmph2]"Bro tivemos a tua procura o dia todo."
+PAUSE
+SFX:ChangeLine
+"..."
+PAUSE
+SPRITE:pointUp
+SFX:ChangeLine
+SFX:impact3
+FX:flash
+[gasp]"CUIDADO COM O FILHO DA PUTA DO (MONOKUMA)!!!!!!!"
+PAUSE
+CHARACTER:MONOKUMA
+SFX:monokuma
+SPRITE:goof
+OST:monokuma
+[hiya]"Ola sou eu o Monokuma, prazer em conhecer-te Hajime Hinata."
+PAUSE
+SFX:ChangeLine
+SPRITE:perv
+[breathe]"Andas muito saidinho da casca seu malandro."
+PAUSE
+SFX:ChangeLine
+SPRITE:laugh
+[laugh]"É melhor teres cuidado quando dormes."
+PAUSE
+SFX:ChangeLine
+SPRITE:angry
+FX:shake
+SFX:impact3
+[angry]"Se não vou te meter o dedo no (RABO)!!!!"
+PAUSE
+SFX:ChangeLine
+FX:shake
+SFX:impact3
+[angry]"Tou a ficar fartinho de escrever este roteiro para debug!!!!"
+PAUSE
+SFX:ChangeLine
+SPRITE:bye
+[shing]"Por isso já sabes, fecha (esse rabinho) e põe-te fino."
+PAUSE
+SFX:ChangeLine
+OST:beautiful_morning
+CHARACTER:CHIAKI_NANAMI
+SPRITE:idleAngry
+[hmm]"fds que gajo atrasado"
+PAUSE
+SFX:ChangeLine
+"ja nem se pode falar em paz"
+PAUSE
+SFX:ChangeLine
+"mas enfim caga nesse otario"
+PAUSE
+SFX:ChangeLine
+SPRITE:retard
+SFX:fact
+FX:flash
+[well]"bora (pinar)"
+SFX:ChangeLine
+PAUSE
+OST:beautiful_morning
+PAUSE
